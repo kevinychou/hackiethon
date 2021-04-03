@@ -11,19 +11,29 @@ import Typography from '@material-ui/core/Typography';
 export default function Pomo() {
   return(
     <Timer
-          initialTime={55000}
-          direction="backward"
-      >
-          {() => (
-              <React.Fragment>
+        initialTime={25 * 60 * 1000}
+        lastUnit="m"
+        direction="backward"
 
-
-                  <Timer.Minutes /> minutes
-                  <Timer.Seconds /> seconds
-                  <Timer.Milliseconds /> milliseconds
-              </React.Fragment>
-          )}
-      </Timer>
+    >
+        {({ start, resume, pause, stop, reset, timerState }) => (
+            <React.Fragment>
+                <div>
+                    <Timer.Minutes /> minutes
+                    <Timer.Seconds /> seconds
+                </div>
+                <div>{timerState}</div>
+                <br />
+                <div>
+                    <button onClick={start}>Start</button>
+                    <button onClick={pause}>Pause</button>
+                    <button onClick={resume}>Resume</button>
+                    <button onClick={stop}>Stop</button>
+                    <button onClick={reset}>Reset</button>
+                </div>
+            </React.Fragment>
+        )}
+    </Timer>
   )
 }
 // const useStyles = makeStyles({
