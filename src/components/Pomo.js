@@ -7,34 +7,64 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(2),
+      width: theme.spacing(100),
+      height: theme.spacing(50),
+    },
+    textAlign: 'center',
+    position: 'relative',
+  },
+}));
 
 export default function Pomo() {
-  return(
-    <Timer
-        initialTime={25 * 60 * 1000}
-        lastUnit="m"
-        direction="backward"
 
-    >
-        {({ start, resume, pause, stop, reset, timerState }) => (
-            <React.Fragment>
-                <div>
-                    <Timer.Minutes /> minutes
-                    <Timer.Seconds /> seconds
-                </div>
-                <div>{timerState}</div>
-                <br />
-                <div>
-                    <button onClick={start}>Start</button>
-                    <button onClick={pause}>Pause</button>
-                    <button onClick={resume}>Resume</button>
-                    <button onClick={stop}>Stop</button>
-                    <button onClick={reset}>Reset</button>
-                </div>
-            </React.Fragment>
-        )}
-    </Timer>
-  )
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+
+      <Paper elevation={3}>
+          <div style={{margin: '25% 0 0 25%', position: 'absolute'}}>
+            <Typography 
+              variant="h4"
+              component="h4"
+              
+            >
+              <Timer
+                initialTime={(25 * 60 - 1) * 1000}
+                lastUnit="m"
+                direction="backward"
+                >
+                {({ start, resume, pause, stop, reset, timerState }) => (
+                    <React.Fragment>
+                        <div>
+                            <Timer.Minutes />:
+                            <Timer.Seconds />
+                        </div>
+                        <div>{timerState}</div>
+                        <br />
+                        <div>
+                            <button onClick={start}>Start</button>
+                            <button onClick={pause}>Pause</button>
+                            <button onClick={resume}>Resume</button>
+                            <button onClick={stop}>Stop</button>
+                            <button onClick={reset}>Reset</button>
+                        </div>
+                    </React.Fragment>
+                )}
+            </Timer>
+          </Typography>
+        </div>
+      </Paper>
+    </div>
+  );
 }
 // const useStyles = makeStyles({
 //   root: {
