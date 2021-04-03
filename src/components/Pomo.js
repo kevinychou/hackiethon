@@ -38,15 +38,15 @@ export default function Pomo() {
               component="h4"
             >
               <Timer
-                initialTime={(25 * 60 - 1) * 1000}
+                initialTime={(2 * 60) * 1000}
                 lastUnit="m"
                 direction="backward"
                 >
                 {({ start, resume, pause, stop, reset, timerState }) => (
                     <React.Fragment>
                         <div>
-                            <Timer.Minutes />:
-                            <Timer.Seconds />
+                          <Timer.Minutes formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>:
+                          <Timer.Seconds formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>
                         </div>
                         {/* <div>{timerState}</div> */}
                         {/* <br /> */}
