@@ -1,92 +1,43 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-<head>
-  <link rel="stylesheet" href="./styles.css">
-</head>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-<body>
-  <div class="macbook-pro-1">
-    <div class="banner">
-      <img
-        class="adjust-1"
-        src="./images/adjust-1.png"
-      />
-      <div class="study-flow valign-text-middle sourcesanspro-normal-white-30px">StudyFlow</div>
-      <div class="profile">
-        <img
-          class="profile-picture"
-          src="./images/profile-picture.png"
-        />
-        <div class="jennifer valign-text-middle sourcesanspro-normal-white-18px">Jennifer Chen</div>
-      </div>
-    </div>
-    
-    <div class="flex-row">
-      <img
-        class="group-31"
-        src="./images/group-31.png"
-      />
-      <div class="flex-col">
-        <div class="pomodoro-timer">
-          <img
-            class="break-logo"
-            src="./images/break-logo.png"
-          />
-          <div class="flex-col-1">
-            <div class="title sourcesanspro-normal-black-30px">Long break</div>
-            <h1 class="time valign-text-middle sourcesanspro-normal-black-120px">29:10</h1>
-            <div class="group-29">
-              <div class="overlap-group">
-                <div class="pause valign-text-middle sourcesanspro-normal-white-20px">Pause</div>
-              </div>
-            </div>
-          </div>
-          <div class="group-30">
-            <img
-              class="ellipse-1"
-              src="./images/ellipse-1.png"
-            />
-            <img
-              class="ellipse-"
-              src="./images/ellipse-2.png"
-            />
-            <img
-              class="ellipse-"
-              src="./images/ellipse-3.png"
-            />
-            <img
-              class="ellipse-"
-              src="./images/ellipse-4.png"
-            />
-          </div>
-        </div>
-        <div class="frame-1"></div>
-      </div>
-    </div>
-  </div>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyD1OtCoO2em2sBOiv0pkC4nkndReovwCdk",
-    authDomain: "studyflow-web.firebaseapp.com",
-    projectId: "studyflow-web",
-    storageBucket: "studyflow-web.appspot.com",
-    messagingSenderId: "28564599716",
-    appId: "1:28564599716:web:17b4339989338f787fc731",
-    measurementId: "G-K8DVD7YY6X"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  </script>
-
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
