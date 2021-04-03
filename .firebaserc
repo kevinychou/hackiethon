@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "studyflow-web"
+  },
+  "targets": {
+    "studyflow-web": {
+      "hosting": {
+        "main": [
+          "studyflow"
+        ]
+      }
+    }
   }
 }
