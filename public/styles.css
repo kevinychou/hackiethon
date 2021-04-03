@@ -1,7 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 * {
   box-sizing: border-box;
+  font-family: sourcesanspro-regular-normal-white-30px, Helvetica;
 }
+
+
 .macbook-pro-1 {
   align-items: center;
   background-color: var(--porcelain);

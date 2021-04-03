@@ -1,60 +1,92 @@
 <!DOCTYPE HTML>
 
-<div class="macbook-pro-1">
-  <div class="banner">
-    <img
-      class="adjust-1"
-      src="adjust-1.png"
-    />
-    <div class="study-flow valign-text-middle sourcesanspro-normal-white-30px">StudyFlow</div>
-    <div class="profile">
+<head>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="macbook-pro-1">
+    <div class="banner">
       <img
-        class="profile-picture"
-        src="profile-picture.png"
+        class="adjust-1"
+        src="./images/adjust-1.png"
       />
-      <div class="jennifer valign-text-middle sourcesanspro-normal-white-18px">Jennifer Chen</div>
-    </div>
-  </div>
-  <div class="flex-row">
-    <img
-      class="group-31"
-      src="group-31.png"
-    />
-    <div class="flex-col">
-      <div class="pomodoro-timer">
+      <div class="study-flow valign-text-middle sourcesanspro-normal-white-30px">StudyFlow</div>
+      <div class="profile">
         <img
-          class="break-logo"
-          src="break-logo.png"
+          class="profile-picture"
+          src="./images/profile-picture.png"
         />
-        <div class="flex-col-1">
-          <div class="title sourcesanspro-normal-black-30px">Long break</div>
-          <h1 class="time valign-text-middle sourcesanspro-normal-black-120px">29:10</h1>
-          <div class="group-29">
-            <div class="overlap-group">
-              <div class="pause valign-text-middle sourcesanspro-normal-white-20px">Pause</div>
+        <div class="jennifer valign-text-middle sourcesanspro-normal-white-18px">Jennifer Chen</div>
+      </div>
+    </div>
+    
+    <div class="flex-row">
+      <img
+        class="group-31"
+        src="./images/group-31.png"
+      />
+      <div class="flex-col">
+        <div class="pomodoro-timer">
+          <img
+            class="break-logo"
+            src="./images/break-logo.png"
+          />
+          <div class="flex-col-1">
+            <div class="title sourcesanspro-normal-black-30px">Long break</div>
+            <h1 class="time valign-text-middle sourcesanspro-normal-black-120px">29:10</h1>
+            <div class="group-29">
+              <div class="overlap-group">
+                <div class="pause valign-text-middle sourcesanspro-normal-white-20px">Pause</div>
+              </div>
             </div>
           </div>
+          <div class="group-30">
+            <img
+              class="ellipse-1"
+              src="./images/ellipse-1.png"
+            />
+            <img
+              class="ellipse-"
+              src="./images/ellipse-2.png"
+            />
+            <img
+              class="ellipse-"
+              src="./images/ellipse-3.png"
+            />
+            <img
+              class="ellipse-"
+              src="./images/ellipse-4.png"
+            />
+          </div>
         </div>
-        <div class="group-30">
-          <img
-            class="ellipse-1"
-            src="ellipse-1.png"
-          />
-          <img
-            class="ellipse-"
-            src="ellipse-2.png"
-          />
-          <img
-            class="ellipse-"
-            src="ellipse-3.png"
-          />
-          <img
-            class="ellipse-"
-            src="ellipse-4.png"
-          />
-        </div>
+        <div class="frame-1"></div>
       </div>
-      <div class="frame-1"></div>
     </div>
   </div>
-</div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD1OtCoO2em2sBOiv0pkC4nkndReovwCdk",
+    authDomain: "studyflow-web.firebaseapp.com",
+    projectId: "studyflow-web",
+    storageBucket: "studyflow-web.appspot.com",
+    messagingSenderId: "28564599716",
+    appId: "1:28564599716:web:17b4339989338f787fc731",
+    measurementId: "G-K8DVD7YY6X"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  </script>
+
+</body>
