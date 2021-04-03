@@ -2,12 +2,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Timer from 'react-compound-timer';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+// import CardActions from '@material-ui/core/CardActions';
+// import CardContent from '@material-ui/core/CardContent';
+// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import Paper from '@material-ui/core/Paper';
+import openSans from "@fontsource/open-sans"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,9 +34,8 @@ export default function Pomo() {
       <Paper elevation={3}>
           <div style={{margin: '25% 0 0 25%', position: 'absolute'}}>
             <Typography 
-              variant="h4"
+              variant="h2"
               component="h4"
-              
             >
               <Timer
                 initialTime={(25 * 60 - 1) * 1000}
@@ -48,8 +48,8 @@ export default function Pomo() {
                             <Timer.Minutes />:
                             <Timer.Seconds />
                         </div>
-                        <div>{timerState}</div>
-                        <br />
+                        {/* <div>{timerState}</div> */}
+                        {/* <br /> */}
                         <div>
                             <button onClick={start}>Start</button>
                             <button onClick={pause}>Pause</button>
