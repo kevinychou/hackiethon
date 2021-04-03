@@ -1,8 +1,13 @@
+
+
 import React, { Component } from 'react'
 import NavBar from './components/NavBar'
 import Pomo from './components/Pomo'
 import Grid from '@material-ui/core/Grid';
 import Quizlet from './components/Quizlet'
+
+var firebase = require('firebase');
+var firebaseui = require('firebaseui');
 
 class App extends Component {
   render() {
