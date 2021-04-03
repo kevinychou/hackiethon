@@ -8,9 +8,14 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 
 import Paper from '@material-ui/core/Paper';
-import openSans from "@fontsource/open-sans"
+import './Pomo.css';
+import Button from '@material-ui/core/Button';
+
+// import openSans from "@fontsource/open-sans"
+
 
 const useStyles = makeStyles((theme) => ({
+  // Timer display CSS
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -24,44 +29,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const buttonStyle = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
+
 export default function Pomo() {
 
   const classes = useStyles();
+  const buttonClasses = buttonStyle();
+
 
   return (
     <div className={classes.root}>
-
       <Paper elevation={3}>
-          <div style={{margin: '25% 0 0 25%', position: 'absolute'}}>
-            <Typography 
-              variant="h2"
-              component="h4"
-            >
-              <Timer
-                initialTime={(2 * 60) * 1000}
-                lastUnit="m"
-                direction="backward"
-                >
-                {({ start, resume, pause, stop, reset, timerState }) => (
+          <div class="container">
+            <div class="child">
+              <Typography 
+                variant="h2"
+                component="h4"
+              >
+                <Timer
+                  initialTime={(2 * 60) * 1000}
+                  lastUnit="m"
+                  direction="backward"
+                  >
+                  {({ start, resume, pause, stop, reset, timerState }) => (
                     <React.Fragment>
                         <div>
                           <Timer.Minutes formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>:
                           <Timer.Seconds formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>
                         </div>
-                        {/* <div>{timerState}</div> */}
-                        {/* <br /> */}
-                        <div>
-                            <button onClick={start}>Start</button>
-                            <button onClick={pause}>Pause</button>
-                            <button onClick={resume}>Resume</button>
-                            <button onClick={stop}>Stop</button>
-                            <button onClick={reset}>Reset</button>
+                        <div className={buttonClasses.root}>
+                            <Button variant="contained" onClick={start}>Start</Button>
+                            <Button variant="contained" onClick={pause}>Pause</Button>
+                            <Button variant="contained" onClick={reset}>Reset</Button>
                         </div>
                     </React.Fragment>
-                )}
-            </Timer>
-          </Typography>
-        </div>
+                  )}
+                </Timer>
+              </Typography>
+            </div>
+          </div>
       </Paper>
     </div>
   );
