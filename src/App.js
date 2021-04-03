@@ -1,13 +1,27 @@
 import React, { Component } from 'react'
 import NavBar from './components/NavBar'
-import CourseList from './components/CourseList'
+import Pomo from './components/Pomo'
+import Grid from '@material-ui/core/Grid';
+import Quizlet from './components/Quizlet'
 
 class App extends Component {
   render() {
     return (
       <div>
         <NavBar />
-        <iframe src="https://quizlet.com/555471868/flashcards/embed?i=3iac9z&x=1jj1" height="1000" width="50%" ></iframe>
+
+        <Grid container sm={12}>
+
+          <Grid item sm={6}>
+            <Quizlet />
+          </Grid>
+
+          <Grid item sm={6}>
+            <Pomo />
+          </Grid>
+          
+        </Grid>
+
       </div>
     )
   }
