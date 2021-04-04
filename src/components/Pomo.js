@@ -56,10 +56,12 @@ export default function Pomo() {
           callback: () => {
             if (working === true) {
               working = false;
-              controls.setTime((5 * 60) * 1000);
+              controls.setTime((6 * 1) * 1000);
+              controls.start();
             } else {
               working = true;
-              controls.setTime((5 * 60) * 1000);
+              controls.setTime((7 * 1) * 1000);
+              controls.start();
             }
           }
         }]
@@ -80,6 +82,11 @@ export default function Pomo() {
                 <div> 
                   {String(value.m).length > 1 ? value.m : '0' + value.m}:
                   {String(value.s).length > 1 ? value.s : '0' + value.s}
+                    <div className={buttonClasses.root}>
+                        <Button variant="contained" onClick={controls.start}>Start</Button>
+                        <Button variant="contained" onClick={controls.pause}>Pause</Button>
+                        <Button variant="contained" onClick={controls.reset}>Reset</Button>
+                    </div>
                 </div>
               </Typography>
             </div>
