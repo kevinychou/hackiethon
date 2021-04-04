@@ -43,8 +43,8 @@ class MemeGenerator extends Component {
     this.setState({ want_rick: false })
     this.setState({ status: 0 })
 
-    // const rp = require('request-promise');
-    // const $ = require('cheerio');
+    const rp = require('request-promise');
+    const $ = require('cheerio');
     const url = 'https://cors-anywhere.herokuapp.com/https://randomwordgenerator.com/motivational-quote.php';
 
     rp(url)
