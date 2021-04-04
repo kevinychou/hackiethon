@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Timer from 'react-compound-timer';
+import { useTimer } from 'react-compound-timer';
 import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
@@ -41,6 +41,53 @@ export default function Pomo() {
 
   const classes = useStyles();
   const buttonClasses = buttonStyle();
+  let { working, setWorking } = useState(true);
+  const workTime = (25 * 60) * 1000;
+  const restTime = (5 * 60) * 1000;
+
+  const { value, controls } = useTimer({
+    initialTime: workTime,
+    lastUnit: "m",
+    direction: "backward"
+  });
+
+  useEffect(
+    () => {
+      controls.setCheckpoints([{
+          time: 0,
+          callback: () => {
+            if (working === true) {
+              working = false;
+              controls.reset();
+              controls.setTime(workTime);
+              controls.start();
+            } else {
+              working = true;
+              controls.reset();
+              controls.setTime(restTime);
+              controls.start();
+            }
+          }
+        }]
+      );
+    },
+    [],
+  )
+
+  const toggleRest = () => {
+    const btn = document.getElementById("toggleRest");
+    if (btn.textContent === "Rest") {
+      btn.textContent = "Work";
+      working = false;
+      controls.reset();
+      controls.setTime(restTime);
+    } else {
+      btn.textContent = "Rest";
+      working = true;
+      controls.reset();
+      controls.setTime(workTime);
+    }
+  };
 
   return (
     <div className={classes.root}>
@@ -51,25 +98,16 @@ export default function Pomo() {
                 variant="h1"
                 component="h2"
               >
-                <Timer
-                  initialTime={(25 * 60) * 1000}
-                  lastUnit="m"
-                  direction="backward"
-                >
-                  {({ start, resume, pause, stop, reset, timerState }) => (
-                    <React.Fragment>
-                        <div>
-                          <Timer.Minutes formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>:
-                          <Timer.Seconds formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>
-                        </div>
-                        <div className={buttonClasses.root}>
-                            <Button variant="contained" onClick={start}>Start</Button>
-                            <Button variant="contained" color="#00CA4E" onClick={pause}>Pause</Button>
-                            <Button variant="contained" color="secondary" onClick={function(event){ pause(); reset();}}>Reset</Button>
-                        </div>
-                    </React.Fragment>
-                  )}
-                </Timer>
+                <div className={classes.root}>
+                  &nbsp;&nbsp; {String(value.m).length > 1 ? value.m : '0' + value.m}:
+                  {String(value.s).length > 1 ? value.s : '0' + value.s}
+                </div>
+                <div className={buttonClasses.root}>
+                    <Button variant="contained" onClick={controls.start}>Start</Button>
+                    <Button variant="contained" color="#00CA4E" onClick={controls.pause}>Pause</Button>
+                    <Button variant="contained" color="secondary" onClick={function(event){ controls.pause(); controls.reset();}}>Reset</Button>
+                    <Button variant="contained" id="toggleRest" onClick={toggleRest}>Rest</Button>
+                </div>
               </Typography>
             </div>
           </div>

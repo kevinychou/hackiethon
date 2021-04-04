@@ -6,6 +6,7 @@ import Quizlet from './components/Quizlet';
 import Panel from './components/Panel';
 import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import Paper from '@material-ui/core/Paper';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -82,12 +83,20 @@ class App extends Component {
 
             <Grid item sm={6}>
               <Pomo />
-              {this.state.isSignedIn ? (<input type='hidden' />) : (
-                      <StyledFirebaseAuth
-                      uiConfig={this.uiConfig}
-                      firebaseAuth={firebase.auth()}
-                      />
-                  )}
+              {this.state.isSignedIn ? (
+                <Paper elevation={3}>
+                  <div class="container">
+                    <div class="relative">
+                      Poke
+                    </div>
+                  </div>
+                </Paper>
+              ) : (
+                <StyledFirebaseAuth
+                uiConfig={this.uiConfig}
+                firebaseAuth={firebase.auth()}
+                />
+              )}
             </Grid>
 
             <Grid item sm={6}>
