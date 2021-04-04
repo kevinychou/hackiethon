@@ -6,11 +6,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-
-import Panel from './Quizlet'
-import MemeGenerator from './MemeGenerator'
-import Quotes from './Quotes'
-import { isExternalModuleNameRelative } from 'typescript';
+import Panel from './Quizlet';
+import MemeGenerator from './MemeGenerator';
+import Quotes from './Quotes';
+import studySound from './audio/more_study.wav';
+import breakSound from './audio/break_time.wav';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,8 +56,22 @@ export default function SimpleTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
+  // Audio files
+  const studyAudio = new Audio(studySound);
+  const breakAudio = new Audio(breakSound);
+
+  const playSound = audioFile => { audioFile.play(); };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    switch(newValue) {
+      case 1:
+        playSound(breakAudio);
+        break;
+      case 2:
+        playSound(studyAudio);
+        break;
+    }
   };
 
   return (
