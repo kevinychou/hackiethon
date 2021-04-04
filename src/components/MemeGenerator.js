@@ -2,14 +2,9 @@ import Button from '@material-ui/core/Button';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import "./MemeGenerator.css";
-// import { Box } from '@material-ui/core';
-
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-
-// import memes from "./memes.json";
-
-//Quizlet, Meme/doggo, ??null, Focus
+import barkSound from './audio/bark.wav';
+import sleepSound from './audio/sleep.wav';
+import raymanSound from './audio/Rayman_Sounds.wav';
 
 class MemeGenerator extends React.Component {
 
@@ -35,6 +30,9 @@ class MemeGenerator extends React.Component {
         },
       },
     }));
+    this.barkAudio = new Audio(barkSound);
+    this.sleepAudio = new Audio(sleepSound);
+    this.raymanAudio = new Audio(raymanSound);
   }
 
   handleClickExercise = () => {
@@ -42,7 +40,8 @@ class MemeGenerator extends React.Component {
     this.setState({ topText: "" });
     this.setState({ bottomText: "" });
     this.setState({ want_rick: false });
-    this.setState({ status: 3 })
+    this.setState({ status: 3 });
+    this.sleepAudio.play();
   };
 
   handleClickNull = () => {
@@ -50,7 +49,8 @@ class MemeGenerator extends React.Component {
     this.setState({ topText: "" });
     this.setState({ bottomText: "" });
     this.setState({ want_rick: false });
-    this.setState({ status: 2 })
+    this.setState({ status: 2 });
+    this.raymanAudio.play();
   };
 
   handleClick = () => {
@@ -82,6 +82,7 @@ class MemeGenerator extends React.Component {
             this.setState({ bottomText: this.state.allMemeImgs[randomNumber].bottomText });
         }
     }
+    this.barkAudio.play();
   };
 
   render() {

@@ -1,4 +1,3 @@
-import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -6,13 +5,9 @@ import Icon from './wall-clock.png'
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Hidden from '@material-ui/core/Hidden';
-import MainMenu from './MainMenu'
-
 import { makeStyles } from "@material-ui/core/styles";
 import { createMuiTheme } from '@material-ui/core/styles';
-
-import ReactDOM from 'react-dom';
-import GoogleLogin from 'react-google-login';
+import laughSound from './audio/laugh.wav';
 
 
 const useStyles = makeStyles({
@@ -38,6 +33,10 @@ const theme = createMuiTheme({
 
 const NavBar = () => {
     const classes = useStyles()
+    const laughAudio = new Audio(laughSound);
+    const showMessage = () => { 
+        alert("Thank you for visiting our website and hope you enjoyed it!\n\nMade by McEggs 2021 through sweat, blood, and code.");
+    };
     return(
         <div>
         <AppBar position="static"
@@ -47,8 +46,7 @@ const NavBar = () => {
                 {/* Secret Button */}
                 <Hidden>
                     <Box m={0}>
-                        <Button onClick={() => { alert("Thank you for visiting our website and hope you enjoyed it!\n\nMade by McEggs 2021 through sweat, blood, and code.")}}
-                        size='small' > 
+                        <Button onClick={() => {showMessage(); laughAudio.play()}} size='small'> 
                         </Button>
                     </Box>
                 </Hidden>
