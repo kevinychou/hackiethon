@@ -20,7 +20,7 @@ const buttonStyle = makeStyles((theme) => ({
         textAlign: 'center',
         position: 'relative',
         alignItems: 'center',
-        padding: '10px 20px 10px 20px',
+        padding: '2% 4% 2% 4%',
         width: '60%'
     },
     "&:hover": {
@@ -30,7 +30,7 @@ const buttonStyle = makeStyles((theme) => ({
         textAlign: 'right',
         position: 'relative',
         alignItems: 'center',
-        padding: '10px 20px 10px 20px',
+        padding: '2% 4% 2% 4%',
         width: '90%'
       }
     }
