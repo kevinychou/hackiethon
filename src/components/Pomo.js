@@ -1,18 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTimer } from 'react-compound-timer';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import Paper from '@material-ui/core/Paper';
 import './Pomo.css';
 import Button from '@material-ui/core/Button';
-
-
-// import openSans from "@fontsource/open-sans"
-
+import restSound from './audio/rest_now.wav';
+import workSound from './audio/keep_working.wav';
 
 const useStyles = makeStyles((theme) => ({
   // Timer display CSS
@@ -56,6 +50,12 @@ function Pomo() {
   const restTime = (5 * 60) * 1000;
   const paperStyle = useRef(classes.workPaper);
 
+  // Audio files
+  const restAudio = new Audio(restSound);
+  const workAudio = new Audio(workSound);
+
+  const playSound = audioFile => { audioFile.play(); };
+
   const { value, controls } = useTimer({
     initialTime: workTime,
     lastUnit: "m",
@@ -68,9 +68,11 @@ function Pomo() {
     if (working === false) {
       controls.setTime(restTime);
       paperStyle.current = classes.restPaper;
+      playSound(restAudio);
     } else {
       controls.setTime(workTime);
       paperStyle.current = classes.workPaper;
+      playSound(workAudio);
     }
     controls.start();
   }
@@ -112,7 +114,7 @@ function Pomo() {
               component="h2"
             >
               <React.Fragment>
-                <h1 className={classes.message}>Rest Now!</h1>
+                <h1 className={classes.message}>Keep Working!</h1>
                 <div className={buttonClasses.root}>
                   {String(value.m).length > 1 ? value.m : '0' + value.m}:
                   {String(value.s).length > 1 ? value.s : '0' + value.s}
@@ -130,51 +132,3 @@ function Pomo() {
   );
 }
 export default Pomo;
-
-
-
-// const useStyles = makeStyles({
-//   root: {
-//     minWidth: 275,
-//   },
-//   bullet: {
-//     display: 'inline-block',
-//     margin: '0 2px',
-//     transform: 'scale(0.8)',
-//   },
-//   title: {
-//     fontSize: 14,
-//   },
-//   pos: {
-//     marginBottom: 12,
-//   },
-// });
-
-// export default function OutlinedCard() {
-//   const classes = useStyles();
-//   const bull = <span className={classes.bullet}>•</span>;
-
-//   return (
-//     <Card className={classes.root} variant="outlined">
-//       <CardContent>
-//         <Typography className={classes.title} color="textSecondary" gutterBottom>
-//           Word of the Day
-//         </Typography>
-//         <Typography variant="h5" component="h2">
-//           be{bull}nev{bull}o{bull}lent
-//         </Typography>
-//         <Typography className={classes.pos} color="textSecondary">
-//           adjective
-//         </Typography>
-//         <Typography variant="body2" component="p">
-//           well meaning and kindly.
-//           <br />
-//           {'"a benevolent smile"'}
-//         </Typography>
-//       </CardContent>
-//       <CardActions>
-//         <Button size="small">Learn More</Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
