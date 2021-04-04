@@ -4,6 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Icon from './wall-clock.png'
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Hidden from '@material-ui/core/Hidden';
 import MainMenu from './MainMenu'
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -42,7 +44,14 @@ const NavBar = () => {
             style={{ background: theme.palette.primary.mainGradient }}
         >
             <Toolbar>
-
+                {/* Secret Button */}
+                <Hidden>
+                    <Box m={0}>
+                        <Button onClick={() => { alert("Thank you for visiting our website and hope you enjoyed it!\n\nMade by McEggs 2021 through sweat, blood, and code.")}}
+                        size='small' > 
+                        </Button>
+                    </Box>
+                </Hidden>
                 <img className={classes.menuButton}
                     src={Icon} alt="Italian Trulli" width="40" height="40"/>
 
