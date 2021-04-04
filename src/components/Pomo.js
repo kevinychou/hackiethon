@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Timer from 'react-compound-timer';
+import Timer, { useTimer } from 'react-compound-timer';
 import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
@@ -41,7 +41,32 @@ export default function Pomo() {
 
   const classes = useStyles();
   const buttonClasses = buttonStyle();
+  let { working, setWorking } = useState(true);
 
+  const { value, controls } = useTimer({
+    initialTime: 3000,
+    lastUnit: "m",
+    direction: "backward"
+  });
+
+  useEffect(
+    () => {
+      controls.setCheckpoints([{
+          time: 0,
+          callback: () => {
+            if (working === true) {
+              working = false;
+              controls.setTime((5 * 60) * 1000);
+            } else {
+              working = true;
+              controls.setTime((5 * 60) * 1000);
+            }
+          }
+        }]
+      );
+    },
+    [],
+  )
 
   return (
     <div className={classes.root}>
@@ -52,25 +77,10 @@ export default function Pomo() {
                 variant="h2"
                 component="h4"
               >
-                <Timer
-                  initialTime={(2 * 60) * 1000}
-                  lastUnit="m"
-                  direction="backward"
-                  >
-                  {({ start, resume, pause, stop, reset, timerState }) => (
-                    <React.Fragment>
-                        <div>
-                          <Timer.Minutes formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>:
-                          <Timer.Seconds formatValue={(time) => String(time).length > 1 ? time : '0' + time}/>
-                        </div>
-                        <div className={buttonClasses.root}>
-                            <Button variant="contained" onClick={start}>Start</Button>
-                            <Button variant="contained" onClick={pause}>Pause</Button>
-                            <Button variant="contained" onClick={reset}>Reset</Button>
-                        </div>
-                    </React.Fragment>
-                  )}
-                </Timer>
+                <div> 
+                  {String(value.m).length > 1 ? value.m : '0' + value.m}:
+                  {String(value.s).length > 1 ? value.s : '0' + value.s}
+                </div>
               </Typography>
             </div>
           </div>
