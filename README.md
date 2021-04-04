@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+## Website Summary
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*Problem:* StudyFlow addresses the productivity and mental health difficulties of studying at home; it's a Pomodoro Timer with multiple features → An integrated flashcard app, extra fun buttons, and the ability to poke your friends!
 
-## Available Scripts
+*Inspiration:* The idea came from one of our own needs; we wanted a tool that enables you to practice flashcards more consistently, while also encouraging you to study. By merging the timer and flashcards into a single website, it reduces the friction the typical student faces when deciding to study or to relax.
 
-In the project directory, you can run:
+*But wait, there's more!*
 
-### `npm start`
+*Further Functions:* Humans are social creatures - it's unsurprising that so many of us have felt demotivated during COVID-19 and working from home. And so, our website has a range of extra functions to keep things entertaining! A meme button (which generates and displays a funny meme or a cute dog), an exercise button (which suggests a random short exercise to keep your physical body engaged), and finally, our poke button. Although we weren't able to implement this in our current website as the API for Facebook poking requires whitelisting, the idea is that you can poke your friends during your breaks so that you can show off that you've finished a study session!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+And of course, in both the spirit of Easter and internet culture, we've added a few little easter eggs to the website 🙂
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How we Built It
 
-### `npm test`
+Our team is composed of four 2nd year students who have a computer science background; except only in the languages of Python, C and R. None of us had any experience developing a website, so we had to be efficient, hopeful, and realistic.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*Backend:*  Everything was handled by Firebase; it provided us with hosting servers, the domain name, as well as Facebook/Google login authentication. We used Git as our version control.
 
-### `npm run build`
+*Frontend:* We mainly used react.js with material UI to develop the website. Figma was used for high-fidelity wireframing of advanced features for the future.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Greatest Challenges & Proudest Moments
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Our team all worked on varying aspects of the process - and so our greatest challenges and proudest moments all varied;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jenn's greatest challenge was learning four languages on the go (HTML, JS, CSS, ReactJS), while also trying to implement meme buttons and exercise routines. She's most proud of how well we worked together as a team!
