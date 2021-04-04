@@ -7,6 +7,9 @@ import Icon from './wall-clock.png'
 import { makeStyles } from "@material-ui/core/styles";
 import { createMuiTheme } from '@material-ui/core/styles';
 
+import ReactDOM from 'react-dom';
+import GoogleLogin from 'react-google-login';
+
 
 const useStyles = makeStyles({
     menuButton: {
@@ -41,9 +44,16 @@ const NavBar = () => {
                     StudyFlow
                 </Typography>
 
+                {/* <GoogleLogin
+                  buttonText="Login"
+                /> */}
+                
+
             </Toolbar>
         </AppBar>
         </div>
     )
 }
 export default NavBar;
+
+

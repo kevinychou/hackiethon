@@ -42,7 +42,6 @@ export default function Pomo() {
   const classes = useStyles();
   const buttonClasses = buttonStyle();
 
-
   return (
     <div className={classes.root}>
       <Paper elevation={3}>
@@ -66,7 +65,7 @@ export default function Pomo() {
                         <div className={buttonClasses.root}>
                             <Button variant="contained" onClick={start}>Start</Button>
                             <Button variant="contained" onClick={pause}>Pause</Button>
-                            <Button variant="contained" onClick={reset}>Reset</Button>
+                            <Button variant="contained" onClick={function(event){ pause(); reset();}}>Reset</Button>
                         </div>
                     </React.Fragment>
                   )}
