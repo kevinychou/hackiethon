@@ -36,13 +36,21 @@ const buttonStyle = makeStyles((theme) => ({
     }
   }
 }));
-  
+
+function handleClick() {
+  if (window.confirm("You've just poked a friend - Enjoy the McEggs! [This feature is a WIP!]\nClick ok to open something cute instead! :) <3")) 
+  {
+  window.open('https://gfycat.com/ifr/ImportantBleakAmethystgemclam', '_blank');
+  };  } 
+
+  //          <Button variant="contained" onClick={() => { alert("You've just poked a friend - Enjoy the bunny! [This feature is a WIP!]")}}> 
+
 function Poke() {
     const buttonClasses = buttonStyle();
 
     return (
       <div className={buttonClasses.root}>
-          <Button variant="contained" onClick={() => { alert("You've just poked a friend - Enjoy the bunny! [This feature is a WIP!]")}}> 
+          <Button variant="contained" onClick={handleClick}> 
               <ThemeProvider theme={ftheme}>
                   <Typography>Poke? 👉</Typography>
               </ThemeProvider>

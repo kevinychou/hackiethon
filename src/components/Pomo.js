@@ -62,18 +62,21 @@ function Pomo() {
     direction: "backward"
   });
 
-  const switchTime = (working) => {
-    setWorking(working);
+  const switchTime = () => {
+    const message = document.querySelector('h1');
     controls.reset();
     if (working === false) {
-      controls.setTime(restTime);
-      paperStyle.current = classes.restPaper;
-      playSound(restAudio);
-    } else {
       controls.setTime(workTime);
       paperStyle.current = classes.workPaper;
       playSound(workAudio);
+      message.textContent = 'Keep Working!';
+    } else {
+      controls.setTime(restTime);
+      paperStyle.current = classes.restPaper;
+      playSound(restAudio);
+      message.textContent = 'Rest Now!';
     }
+    setWorking(!working);
     controls.start();
   }
 
@@ -81,29 +84,12 @@ function Pomo() {
     () => {
       controls.setCheckpoints([{
           time: 0,
-          callback: () => {
-            if (working === true) {
-              switchTime(false);
-            } else {
-              switchTime(true);
-            }
-          }
+          callback: switchTime 
         }]
       );
     },
-    [],
+    [working],
   )
-
-  const toggleRest = () => {
-    const message = document.querySelector('h1');
-    if (working === true) {
-      switchTime(false);
-      message.textContent = 'Rest Now!';
-    } else {
-      switchTime(true);
-      message.textContent = 'Keep Working!';
-    }
-  };
 
   return (
     <div className={classes.root}>
@@ -122,7 +108,7 @@ function Pomo() {
                   <Button variant="contained" onClick={controls.start}>Start</Button>
                   <Button variant="contained" color="#00CA4E" onClick={controls.pause}>Pause</Button>
                   <Button variant="contained" color="secondary" onClick={function(event){ controls.pause(); controls.reset();}}>Reset</Button>
-                  <Button variant="contained" id="toggleRest" onClick={toggleRest}>Switch</Button>
+                  <Button variant="contained" id="toggleRest" onClick={switchTime}>Switch</Button>
                 </div>
               </React.Fragment>
             </Typography>
