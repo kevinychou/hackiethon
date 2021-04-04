@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTimer } from 'react-compound-timer';
-import Card from '@material-ui/core/Card';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
 // import Button from '@material-ui/core/Button';
@@ -28,6 +27,17 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     position: 'relative',
   },
+  workPaper: {
+    backgroundColor: '#a6d4fa',
+    padding: '20px 120px'
+  },
+  restPaper: {
+    backgroundColor: '#81c784',
+    padding: '20px 120px'
+  },
+  message: {
+    fontSize: '30px'
+  }
 }));
 
 const buttonStyle = makeStyles((theme) => ({
@@ -41,9 +51,10 @@ const buttonStyle = makeStyles((theme) => ({
 function Pomo() {
   const classes = useStyles();
   const buttonClasses = buttonStyle();
-  let { working, setWorking } = useState(true);
+  const [working, setWorking] = useState(true);
   const workTime = (25 * 60) * 1000;
   const restTime = (5 * 60) * 1000;
+  const paperStyle = useRef(classes.workPaper);
 
   const { value, controls } = useTimer({
     initialTime: workTime,
@@ -51,21 +62,28 @@ function Pomo() {
     direction: "backward"
   });
 
+  const switchTime = (working) => {
+    setWorking(working);
+    controls.reset();
+    if (working === false) {
+      controls.setTime(restTime);
+      paperStyle.current = classes.restPaper;
+    } else {
+      controls.setTime(workTime);
+      paperStyle.current = classes.workPaper;
+    }
+    controls.start();
+  }
+
   useEffect(
     () => {
       controls.setCheckpoints([{
           time: 0,
           callback: () => {
             if (working === true) {
-              working = false;
-              controls.reset();
-              controls.setTime(workTime);
-              controls.start();
+              switchTime(false);
             } else {
-              working = true;
-              controls.reset();
-              controls.setTime(restTime);
-              controls.start();
+              switchTime(true);
             }
           }
         }]
@@ -75,42 +93,38 @@ function Pomo() {
   )
 
   const toggleRest = () => {
-    const btn = document.getElementById("toggleRest");
-    if (btn.textContent === "Rest") {
-      btn.textContent = "Work";
-      working = false;
-      controls.reset();
-      controls.setTime(restTime);
+    const message = document.querySelector('h1');
+    if (working === true) {
+      switchTime(false);
+      message.textContent = 'Rest Now!';
     } else {
-      btn.textContent = "Rest";
-      working = true;
-      controls.reset();
-      controls.setTime(workTime);
+      switchTime(true);
+      message.textContent = 'Keep Working!';
     }
   };
 
   return (
     <div className={classes.root}>
       <div class="container">
-        <Paper elevation={3}>
-          <Typography
-            variant="h1"
-            component="h2"
-          >
-            <React.Fragment>
-              <div>
-                {String(value.m).length > 1 ? value.m : '0' + value.m}:
-                {String(value.s).length > 1 ? value.s : '0' + value.s}
-              </div>
-              <div className={buttonClasses.root}>
+          <Paper elevation={3} className={paperStyle.current}>
+            <Typography
+              variant="h1"
+              component="h2"
+            >
+              <React.Fragment>
+                <h1 className={classes.message}>Rest Now!</h1>
+                <div className={buttonClasses.root}>
+                  {String(value.m).length > 1 ? value.m : '0' + value.m}:
+                  {String(value.s).length > 1 ? value.s : '0' + value.s}
+                  <br></br>
                   <Button variant="contained" onClick={controls.start}>Start</Button>
                   <Button variant="contained" color="#00CA4E" onClick={controls.pause}>Pause</Button>
                   <Button variant="contained" color="secondary" onClick={function(event){ controls.pause(); controls.reset();}}>Reset</Button>
-                  <Button variant="contained" id="toggleRest" onClick={toggleRest}>Rest</Button>
-              </div>
-            </React.Fragment>
-          </Typography>
-        </Paper>
+                  <Button variant="contained" id="toggleRest" onClick={toggleRest}>Switch</Button>
+                </div>
+              </React.Fragment>
+            </Typography>
+          </Paper>
       </div>
     </div>
   );

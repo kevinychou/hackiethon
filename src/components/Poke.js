@@ -12,44 +12,42 @@ const ftheme = createMuiTheme({
     },
   });
 
-const useStyles = makeStyles((theme) => ({
-    margin: {
-      margin: theme.spacing(1),
-    },
-    extendedIcon: {
-      marginRight: theme.spacing(1),
-    },
-  }));
-
-
-
 const buttonStyle = makeStyles((theme) => ({
-root: {
-    '& > *': {
-    display: 'flex',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(10),
-      width: theme.spacing(70),
-      height: theme.spacing(0),
+  root: {
+      '& > *': {
+        display: 'flex',
+        flexWrap: 'wrap',
+        textAlign: 'center',
+        position: 'relative',
+        alignItems: 'center',
+        padding: '10px 20px 10px 20px',
+        width: '60%'
     },
-    textAlign: 'center',
-    position: 'relative',
-    },
-},
+    "&:hover": {
+      '& > *': {
+        display: 'flex',
+        flexWrap: 'wrap',
+        textAlign: 'right',
+        position: 'relative',
+        alignItems: 'center',
+        padding: '10px 20px 10px 20px',
+        width: '90%'
+      }
+    }
+  }
 }));
   
-export default function ButtonSizes() {
-    const classes = useStyles();
+function Poke() {
     const buttonClasses = buttonStyle();
-  
+
     return (
-        <div className={buttonClasses.root}>
-            <Button variant="contained" onClick={() => { alert("You've just poked a friend - Enjoy the bunny! [This feature is a WIP!]")}}> 
-                <ThemeProvider theme={ftheme}>
-                    <Typography>Poke? 👉</Typography>
-                </ThemeProvider>
-            </Button>
-        </div>
+      <div className={buttonClasses.root}>
+          <Button variant="contained" onClick={() => { alert("You've just poked a friend - Enjoy the bunny! [This feature is a WIP!]")}}> 
+              <ThemeProvider theme={ftheme}>
+                  <Typography>Poke? 👉</Typography>
+              </ThemeProvider>
+          </Button>
+      </div>
     );
 }
+export default Poke;

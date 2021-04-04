@@ -77,15 +77,10 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div>
-
-
           <NavBar />
-
           <Grid container sm={12}>
-
             <Grid item sm={6}>
               <Pomo /> 
-
               {this.state.isSignedIn ? (
                 <Poke />
               ) : (
@@ -99,9 +94,7 @@ class App extends Component {
             <Grid item sm={6}>
               <Panel />
             </Grid>
-
           </Grid>
-
         </div>
       </ThemeProvider>
     )
