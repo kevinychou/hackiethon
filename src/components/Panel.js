@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 
 import Panel from './Quizlet'
 import MemeGenerator from './MemeGenerator.js'
+import { isExternalModuleNameRelative } from 'typescript';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,8 +64,8 @@ export default function SimpleTabs() {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Quizlet" {...a11yProps(0)} />
-          <Tab label="Meme" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Break" {...a11yProps(1)} />
+          <Tab label="More Study" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
 

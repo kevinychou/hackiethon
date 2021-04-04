@@ -6,7 +6,6 @@ import quotes from "./quotes.json";
 
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
 
 // import memes from "./memes.json";
 
@@ -33,6 +32,9 @@ class MemeGenerator extends React.Component {
         '& > *': {
           margin: theme.spacing(3),
           size: 'small',
+          textAlign: 'center',
+          justify: 'center',
+          alignItems: 'center'
         },
       },
     }));
@@ -52,15 +54,6 @@ class MemeGenerator extends React.Component {
     this.setState({ quote_text: this.state.quotes[randomNumber1].text }) 
     this.setState({ quote_author: this.state.quotes[randomNumber1].author }) 
   }
-
-  handleClickQuizlet = () => {
-    this.setState({ randomImg: ""  });
-    this.setState({ topText: "" });
-    this.setState({ bottomText: "" });
-    this.setState({ want_rick: false });
-    this.setState({ status: 1 })
-    this.setState({ quote: "" });
-  };
 
   handleClickExercise = () => {
     this.setState({ randomImg: ""  });
@@ -93,7 +86,6 @@ class MemeGenerator extends React.Component {
         this.setState({ bottomText: "" });
         this.setState({ want_rick: true })
         this.setState({ quote: "" });
-
     } else {
         console.log(randomNumber);
         if (randomNumber >= this.state.allMemeImgs.length) {
@@ -111,11 +103,8 @@ class MemeGenerator extends React.Component {
             this.setState({ topText: this.state.allMemeImgs[randomNumber].topText });
             this.setState({ bottomText: this.state.allMemeImgs[randomNumber].bottomText });
         }
-
     }
-
   };
-  //increaseFont = () => {};
 
   render() {
     let content;
@@ -123,12 +112,6 @@ class MemeGenerator extends React.Component {
       content = (
         <div className={this.buttonClasses.root}>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-      );
-    } else if (this.state.status == 1){
-      content = (
-        <div className={this.buttonClasses.root}>
-            <iframe src="https://quizlet.com/555471868/flashcards/embed?i=3iac9z&x=1jj1" height="700" width="100%" ></iframe>
         </div>
       );
     } else if (this.state.status == 3) {
@@ -170,7 +153,6 @@ class MemeGenerator extends React.Component {
       <div className={this.buttonClasses.root}>
         <Button variant="contained" size='small' onClick={this.handleClick}>Quick meme and doggo break?</Button>
         <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
-        <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
         <Button variant="contained" size='small' onClick={this.handleClickNull}>It's a secret ;)</Button>
         <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
         {content}
