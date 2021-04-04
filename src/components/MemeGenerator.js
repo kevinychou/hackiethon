@@ -100,13 +100,14 @@ class MemeGenerator extends React.Component {
         </div>
       );
     } else {
+      //height="510vh" width="100%"
       content = (
         <div>
           <div className="meme">
             <h2 className="top" >
               {this.state.topText}
             </h2>
-            <img height="510vh" width="100%" src={this.state.randomImg} alt="" />
+            <img src={this.state.randomImg} alt="" />
             <h2
               style={{ fontSize: Number(this.state.font_size) }}
               className="bottom"

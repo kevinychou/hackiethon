@@ -10,12 +10,13 @@ body {
   }
   
   .meme > img {
-    width: 95%;
+    width: 60%;
     max-width: 40em;
-    max-height: 40em;
+    max-height: 510vh;
     margin-bottom: 1.5em;
     background: cover;
     background-repeat: no-repeat;
+
   }
   
   .meme > h2 {
