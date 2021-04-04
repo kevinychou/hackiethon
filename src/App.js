@@ -20,17 +20,17 @@ firebase.initializeApp({
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      // '-apple-system',
+      '-apple-system',
       'BlinkMacSystemFont',
-      // '"Segoe UI"',
-      // 'Roboto',
-      // '"Source Sans Pro"',
-      // '"Helvetica Neue"',
-      // 'Arial',
-      // 'sans-serif',
-      // '"Apple Color Emoji"',
-      // '"Segoe UI Emoji"',
-      // '"Segoe UI Symbol"',
+      '"Segoe UI"',
+      'Roboto',
+      '"Source Sans Pro"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
     ].join(','),
   },
 });
@@ -86,11 +86,11 @@ class App extends Component {
           <Grid container sm={12}>
 
             <Grid item sm={6}>
-              <Quizlet />
+              <Pomo />
             </Grid>
 
             <Grid item sm={6}>
-              <Pomo />
+              <Quizlet />
             </Grid>
             
           </Grid>

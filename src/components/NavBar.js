@@ -3,6 +3,8 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Icon from './wall-clock.png'
+import Button from '@material-ui/core/Button';
+
 
 import { makeStyles } from "@material-ui/core/styles";
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -15,6 +17,10 @@ const useStyles = makeStyles({
     menuButton: {
         marginRight: 16,
         marginLeft: -12
+    },
+    dropDown: {
+        marginRight: 0,
+        marginLeft: 'auto'
     },
 })
 
@@ -44,10 +50,9 @@ const NavBar = () => {
                     StudyFlow
                 </Typography>
 
-                {/* <GoogleLogin
-                  buttonText="Login"
-                /> */}
-                
+                <div className={classes.dropDown}>
+                    <Button className={classes.dropDown} variant="contained">Start</Button>
+                </div>
 
             </Toolbar>
         </AppBar>
