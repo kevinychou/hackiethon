@@ -1,18 +1,61 @@
-
-
 import React, { Component } from 'react'
 import NavBar from './components/NavBar'
 import Pomo from './components/Pomo'
 import Grid from '@material-ui/core/Grid';
 import Quizlet from './components/Quizlet'
+import firebase from 'firebase'
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
-var firebase = require('firebase');
 var firebaseui = require('firebaseui');
 
+firebase.initializeApp({
+  apiKey: 'AIzaSyD1OtCoO2em2sBOiv0pkC4nkndReovwCdk',
+  authDomain: 'studyflow-web.firebaseapp.com'
+})
+
 class App extends Component {
+  state = { isSignedIn : false }
+  uiConfig = {
+    callbacks: {
+      signInSuccess: () => false
+      // signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        // User successfully signed in.
+        // Return type determines whether we continue the redirect automatically
+        // or whether we leave that to developer to handle.
+        // return true;
+      // },
+      // uiShown: function() {
+        // The widget is rendered.
+        // Hide the loader.
+        // document.getElementById('loader').style.display = 'none';
+      // }
+    },
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: 'popup',
+    // signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    ]
+  }
+
+  componentDidMount = ()=>{
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({isSignedIn:!!user})
+    })
+  }
+
   render() {
     return (
       <div>
+        {this.state.isSignedIn ? (<input type='hidden' />) : (
+                <StyledFirebaseAuth
+                uiConfig={this.uiConfig}
+                firebaseAuth={firebase.auth()}
+                />
+            )}
+
         <NavBar />
 
         <Grid container sm={12}>
