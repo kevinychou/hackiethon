@@ -92,27 +92,27 @@ export default function Pomo() {
 
   return (
     <div className={classes.root}>
-      <Paper elevation={3}>
-          <div class="container">
-            <div class="child">
-              <Typography
-                variant="h1"
-                component="h2"
-              >
-                <div className={classes.root}>
-                  &nbsp;&nbsp; {String(value.m).length > 1 ? value.m : '0' + value.m}:
-                  {String(value.s).length > 1 ? value.s : '0' + value.s}
-                </div>
-                <div className={buttonClasses.root}>
-                    <Button variant="contained" onClick={controls.start}>Start</Button>
-                    <Button variant="contained" color="#00CA4E" onClick={controls.pause}>Pause</Button>
-                    <Button variant="contained" color="secondary" onClick={function(event){ controls.pause(); controls.reset();}}>Reset</Button>
-                    <Button variant="contained" id="toggleRest" onClick={toggleRest}>Rest</Button>
-                </div>
-              </Typography>
-            </div>
-          </div>
-      </Paper>
+      <div class="container">
+        <Paper elevation={3}>
+          <Typography
+            variant="h1"
+            component="h2"
+          >
+            <React.Fragment>
+              <div>
+                {String(value.m).length > 1 ? value.m : '0' + value.m}:
+                {String(value.s).length > 1 ? value.s : '0' + value.s}
+              </div>
+              <div className={buttonClasses.root}>
+                  <Button variant="contained" onClick={controls.start}>Start</Button>
+                  <Button variant="contained" color="#00CA4E" onClick={controls.pause}>Pause</Button>
+                  <Button variant="contained" color="secondary" onClick={function(event){ controls.pause(); controls.reset();}}>Reset</Button>
+                  <Button variant="contained" id="toggleRest" onClick={toggleRest}>Rest</Button>
+              </div>
+            </React.Fragment>
+          </Typography>
+        </Paper>
+      </div>
     </div>
   );
 }
