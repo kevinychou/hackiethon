@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#90a4ae',
     width: '95%',
     height: '100%',
-    padding: '20px 20px'
+    padding: '3% 3%'
   }
 }));
 

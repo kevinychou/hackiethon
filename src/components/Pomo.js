@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
   },
   workPaper: {
     backgroundColor: '#a6d4fa',
-    padding: '20px 120px'
+    padding: '3% 20%'
   },
   restPaper: {
     backgroundColor: '#81c784',
-    padding: '20px 120px'
+    padding: '3% 20%'
   },
   message: {
     fontSize: '30px'
