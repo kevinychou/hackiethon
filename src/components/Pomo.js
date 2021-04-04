@@ -64,8 +64,8 @@ export default function Pomo() {
                         </div>
                         <div className={buttonClasses.root}>
                             <Button variant="contained" onClick={start}>Start</Button>
-                            <Button variant="contained" onClick={pause}>Pause</Button>
-                            <Button variant="contained" onClick={function(event){ pause(); reset();}}>Reset</Button>
+                            <Button variant="contained" color="#00CA4E" onClick={pause}>Pause</Button>
+                            <Button variant="contained" color="secondary" onClick={function(event){ pause(); reset();}}>Reset</Button>
                         </div>
                     </React.Fragment>
                   )}
