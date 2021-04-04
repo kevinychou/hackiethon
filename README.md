@@ -23,3 +23,17 @@ Our team is composed of four 2nd year students who have a computer science backg
 Our team all worked on varying aspects of the process - and so our greatest challenges and proudest moments all varied;
 
 Jenn's greatest challenge was learning four languages on the go (HTML, JS, CSS, ReactJS), while also trying to implement meme buttons and exercise routines. She's most proud of how well we worked together as a team!
+
+Much to his dismay, Rayman also had to learn these four languages, as well as typescript. His greatest nightmare was making the Pomodoro timer flip between 'work' and 'rest'. His greatest achievement was also, making the Pomodoro timer flip between 'work' and 'rest'.
+
+Zi Lin, as McEgg's VP of design, was disgusted by the difficulties of alignment and beautifying the website in React (Figma was easier). He felt most accomplished when he got the react code working and started to merge our different codes together.
+
+Kevin had issues with Firebase - unfortunately, website hosting had various issues from time to time, and so he was stuck debugging and wanting to break his slow computer. He's happiest with the Facebook implementation - Although it technically doesn't have any functionality, he thinks it looks beautiful. And he also loves the easter eggs.
+
+## What's next for StudyFlow
+
+Here are some of the other ideas we had for further features;
+
+1. Facebook Poking - Using Facebook API so that clicking the 'Poke' button on our website would send a poke to the relevant friend, or even better, we could set up sessions within our website so that friends could join local lobbies and poke each other.
+2. Website blocking - If our website acts as a google extension, it could block out other distracting tabs during the study sessions.
+3. User Input to Customise Pomodoro Timer - To improve the timer, it could have extra functionality such as having custom inputs or alternate modes (instead of just the 25min/5min).
