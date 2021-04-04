@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(2),
       width: theme.spacing(100),
-      height: theme.spacing(50),
+      height: theme.spacing(40),
     },
     textAlign: 'center',
     position: 'relative',
@@ -48,15 +48,15 @@ export default function Pomo() {
       <Paper elevation={3}>
           <div class="container">
             <div class="child">
-              <Typography 
-                variant="h2"
-                component="h4"
+              <Typography
+                variant="h1"
+                component="h2"
               >
                 <Timer
                   initialTime={(2 * 60) * 1000}
                   lastUnit="m"
                   direction="backward"
-                  >
+                >
                   {({ start, resume, pause, stop, reset, timerState }) => (
                     <React.Fragment>
                         <div>
