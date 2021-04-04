@@ -1,6 +1,7 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import "./MemeGenerator.css";
 // import { Box } from '@material-ui/core';
 
 // import CardActions from '@material-ui/core/CardActions';
@@ -94,7 +95,7 @@ class MemeGenerator extends React.Component {
     } else if (this.state.status == 3) {
       content = (
         <div className={this.buttonClasses.root}>
-          <iframe src="https://www.overstellar.se/random-exercise/#" height="700" width="100%" ></iframe>
+          <iframe src="https://www.overstellar.se/random-exercise/#" height="600" width="100%" ></iframe>
         </div>
       );
     } else {
