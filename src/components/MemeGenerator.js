@@ -96,20 +96,17 @@ class MemeGenerator extends React.Component {
     } else if (this.state.status == 3) {
       content = (
         <div className={this.buttonClasses.root}>
-          <iframe src="https://www.overstellar.se/random-exercise/#" height="600" width="100%" ></iframe>
+          <iframe src="https://www.overstellar.se/random-exercise/#" height="550vh" width="100%" ></iframe>
         </div>
       );
     } else {
       content = (
         <div>
           <div className="meme">
-            <h2
-              //style={{ fontSize: Number(this.state.font_size) }}
-              className="top"
-            >
+            <h2 className="top" >
               {this.state.topText}
             </h2>
-            <img src={this.state.randomImg} alt="" />
+            <img height="510vh" width="100%" src={this.state.randomImg} alt="" />
             <h2
               style={{ fontSize: Number(this.state.font_size) }}
               className="bottom"
@@ -131,29 +128,4 @@ class MemeGenerator extends React.Component {
     );
   }
 }
-
 export default MemeGenerator;
-
-/*<input
-            type="text"
-            name="topText"
-            placeholder="top text"
-            onChange={this.handleChange}
-            value={this.state.topText}
-          />
-          <br />
-          <input
-            type="text"
-            name="bottomText"
-            placeholder="bottom text"
-            onChange={this.handleChange}
-            value={this.state.bottomText}
-          />
-          <br />
-          <input
-            type="number"
-            name="font_size"
-            placeholder="font size"
-            onChange={this.handleChange}
-            value={this.state.font_size}
-          />*/
