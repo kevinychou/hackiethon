@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/open-sans": "^4.2.2",
     "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "cheerio": "^0.22.0",
     "contentful": "^8.2.1",
     "firebase": "^8.3.2",
     "firebaseui": "^4.8.0",
@@ -14,7 +17,9 @@
     "react-compound-timer": "^1.2.0",
     "react-dom": "^17.0.2",
     "react-firebaseui": "^4.1.0",
+    "react-google-login": "^5.2.2",
     "react-scripts": "4.0.3",
+    "request-promise": "^4.2.6",
     "typescript": "^4.2.3",
     "web-vitals": "^1.1.1"
   },

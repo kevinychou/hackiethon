@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import NavBar from './components/NavBar'
 import Pomo from './components/Pomo'
 import Grid from '@material-ui/core/Grid';
-import Quizlet from './components/Quizlet'
+import Quizlet from './components/Quizlet';
+import Poke from './components/Poke';
+import Panel from './components/Panel';
 import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import Paper from '@material-ui/core/Paper';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+// import './Styles/App.css';
 var firebaseui = require('firebaseui');
 
 firebase.initializeApp({
@@ -13,7 +19,27 @@ firebase.initializeApp({
   authDomain: 'studyflow-web.firebaseapp.com'
 })
 
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Source Sans Pro"',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
+});
+
 class App extends Component {
+
+  // Firebase Auth Configuration
   state = { isSignedIn : false }
   uiConfig = {
     callbacks: {
@@ -46,31 +72,31 @@ class App extends Component {
     })
   }
 
+  // Start normal app
   render() {
     return (
-      <div>
-        {this.state.isSignedIn ? (<input type='hidden' />) : (
+      <ThemeProvider theme={theme}>
+        <div>
+          <NavBar />
+          <Grid container sm={12}>
+            <Grid item sm={6}>
+              <Pomo /> 
+              {this.state.isSignedIn ? (
+                <Poke />
+              ) : (
                 <StyledFirebaseAuth
                 uiConfig={this.uiConfig}
                 firebaseAuth={firebase.auth()}
                 />
-            )}
+              )}
+            </Grid>
 
-        <NavBar />
-
-        <Grid container sm={12}>
-
-          <Grid item sm={6}>
-            <Quizlet />
+            <Grid item sm={6}>
+              <Panel />
+            </Grid>
           </Grid>
-
-          <Grid item sm={6}>
-            <Pomo />
-          </Grid>
-          
-        </Grid>
-
-      </div>
+        </div>
+      </ThemeProvider>
     )
   }
 }

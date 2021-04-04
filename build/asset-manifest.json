@@ -1,22 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/static/js/main.f688b145.chunk.js",
-    "main.js.map": "/static/js/main.f688b145.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.9c20709b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.9c20709b.js.map",
-    "static/js/2.078a870f.chunk.js": "/static/js/2.078a870f.chunk.js",
-    "static/js/2.078a870f.chunk.js.map": "/static/js/2.078a870f.chunk.js.map",
-    "static/js/3.4d7a224a.chunk.js": "/static/js/3.4d7a224a.chunk.js",
-    "static/js/3.4d7a224a.chunk.js.map": "/static/js/3.4d7a224a.chunk.js.map",
+    "main.css": "/static/css/main.97747a52.chunk.css",
+    "main.js": "/static/js/main.53ba0e29.chunk.js",
+    "main.js.map": "/static/js/main.53ba0e29.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ecc8a3fc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ecc8a3fc.js.map",
+    "static/js/2.b44d9a50.chunk.js": "/static/js/2.b44d9a50.chunk.js",
+    "static/js/2.b44d9a50.chunk.js.map": "/static/js/2.b44d9a50.chunk.js.map",
+    "static/js/3.8d665edf.chunk.js": "/static/js/3.8d665edf.chunk.js",
+    "static/js/3.8d665edf.chunk.js.map": "/static/js/3.8d665edf.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.078a870f.chunk.js.LICENSE.txt": "/static/js/2.078a870f.chunk.js.LICENSE.txt"
+    "static/css/main.97747a52.chunk.css.map": "/static/css/main.97747a52.chunk.css.map",
+    "static/js/2.b44d9a50.chunk.js.LICENSE.txt": "/static/js/2.b44d9a50.chunk.js.LICENSE.txt",
+    "static/media/Rayman_Sounds.db82c4e6.wav": "/static/media/Rayman_Sounds.db82c4e6.wav",
+    "static/media/bark.7a7b12f1.wav": "/static/media/bark.7a7b12f1.wav",
+    "static/media/break_time.94cb1893.wav": "/static/media/break_time.94cb1893.wav",
+    "static/media/keep_working.d5d4087d.wav": "/static/media/keep_working.d5d4087d.wav",
+    "static/media/laugh.62655f23.wav": "/static/media/laugh.62655f23.wav",
+    "static/media/more_study.4cbaeedd.wav": "/static/media/more_study.4cbaeedd.wav",
+    "static/media/rest_now.3fdc8de4.wav": "/static/media/rest_now.3fdc8de4.wav",
+    "static/media/sleep.348d85e2.wav": "/static/media/sleep.348d85e2.wav",
+    "static/media/wall-clock.07387d29.png": "/static/media/wall-clock.07387d29.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.9c20709b.js",
-    "static/js/2.078a870f.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.f688b145.chunk.js"
+    "static/js/runtime-main.ecc8a3fc.js",
+    "static/js/2.b44d9a50.chunk.js",
+    "static/css/main.97747a52.chunk.css",
+    "static/js/main.53ba0e29.chunk.js"
   ]
 }
