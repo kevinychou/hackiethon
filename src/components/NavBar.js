@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Icon from './wall-clock.png'
 import Button from '@material-ui/core/Button';
-
+import MainMenu from './MainMenu'
 
 import { makeStyles } from "@material-ui/core/styles";
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -51,7 +51,7 @@ const NavBar = () => {
                 </Typography>
 
                 <div className={classes.dropDown}>
-                    <Button className={classes.dropDown} variant="contained">Start</Button>
+                    <MainMenu className={classes.dropDown} />
                 </div>
 
             </Toolbar>
@@ -60,5 +60,3 @@ const NavBar = () => {
     )
 }
 export default NavBar;
-
-
