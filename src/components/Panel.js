@@ -8,7 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Panel from './Quizlet'
-import MemeGenerator from './MemeGenerator.js'
+import MemeGenerator from './MemeGenerator'
+import Quotes from './Quotes'
 import { isExternalModuleNameRelative } from 'typescript';
 
 function TabPanel(props) {
@@ -78,9 +79,8 @@ export default function SimpleTabs() {
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-        Other
+        <Quotes />
       </TabPanel>
-      
     </div>
   );
 }

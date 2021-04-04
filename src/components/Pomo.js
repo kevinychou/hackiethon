@@ -38,8 +38,7 @@ const buttonStyle = makeStyles((theme) => ({
   },
 }));
 
-export default function Pomo() {
-
+function Pomo() {
   const classes = useStyles();
   const buttonClasses = buttonStyle();
   let { working, setWorking } = useState(true);
@@ -116,6 +115,7 @@ export default function Pomo() {
     </div>
   );
 }
+export default Pomo;
 
 
 
