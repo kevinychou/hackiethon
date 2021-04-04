@@ -9,15 +9,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    backgroundColor: "#ffffff",
   },
 }));
 
 const options = [
-  'Show some love to Material-UI',
-  'Show all notification content',
-  'Hide sensitive notification content',
-  'Hide all notification content',
+  'Quizlet',
+  'Meme',
 ];
 
 export default function SimpleListMenu() {
@@ -40,17 +39,20 @@ export default function SimpleListMenu() {
 
   return (
     <div className={classes.root}>
-      <List component="nav" aria-label="Device settings">
+      <List component="nav" aria-label="Application left side">
         <ListItem
           button
           aria-haspopup="true"
           aria-controls="lock-menu"
-          aria-label="when device is locked"
+          aria-label="Choose application"
           onClick={handleClickListItem}
+          style={{maxHeight: '20px'}}
         >
-          <ListItemText primary="When device is locked" secondary={options[selectedIndex]} />
+          {/* <ListItemText primary="When device is locked" secondary={options[selectedIndex]} /> */}
+          <ListItemText secondary={options[selectedIndex]} />
         </ListItem>
       </List>
+
       <Menu
         id="lock-menu"
         anchorEl={anchorEl}
@@ -61,7 +63,7 @@ export default function SimpleListMenu() {
         {options.map((option, index) => (
           <MenuItem
             key={option}
-            disabled={index === 0}
+            disabled={index === selectedIndex}
             selected={index === selectedIndex}
             onClick={(event) => handleMenuItemClick(event, index)}
           >

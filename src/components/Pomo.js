@@ -52,7 +52,7 @@ export default function Pomo() {
                 component="h2"
               >
                 <Timer
-                  initialTime={(2 * 60) * 1000}
+                  initialTime={(25 * 60) * 1000}
                   lastUnit="m"
                   direction="backward"
                 >

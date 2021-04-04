@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import NavBar from './components/NavBar'
 import Pomo from './components/Pomo'
 import Grid from '@material-ui/core/Grid';
-import Quizlet from './components/Quizlet'
+import Quizlet from './components/Quizlet';
+import Panel from './components/Panel';
 import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
@@ -73,12 +74,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div>
-          {this.state.isSignedIn ? (<input type='hidden' />) : (
-                  <StyledFirebaseAuth
-                  uiConfig={this.uiConfig}
-                  firebaseAuth={firebase.auth()}
-                  />
-              )}
+
 
           <NavBar />
 
@@ -86,12 +82,18 @@ class App extends Component {
 
             <Grid item sm={6}>
               <Pomo />
+              {this.state.isSignedIn ? (<input type='hidden' />) : (
+                      <StyledFirebaseAuth
+                      uiConfig={this.uiConfig}
+                      firebaseAuth={firebase.auth()}
+                      />
+                  )}
             </Grid>
 
             <Grid item sm={6}>
-              <Quizlet />
+              <Panel />
             </Grid>
-            
+
           </Grid>
 
         </div>

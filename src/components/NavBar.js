@@ -50,9 +50,9 @@ const NavBar = () => {
                     StudyFlow
                 </Typography>
 
-                <div className={classes.dropDown}>
+                {/* <div className={classes.dropDown}>
                     <MainMenu className={classes.dropDown} />
-                </div>
+                </div> */}
 
             </Toolbar>
         </AppBar>
