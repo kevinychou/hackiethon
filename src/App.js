@@ -3,6 +3,7 @@ import NavBar from './components/NavBar'
 import Pomo from './components/Pomo'
 import Grid from '@material-ui/core/Grid';
 import Quizlet from './components/Quizlet';
+import Poke from './components/Poke';
 import Panel from './components/Panel';
 import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
@@ -38,6 +39,7 @@ const theme = createMuiTheme({
 
 class App extends Component {
 
+  // Firebase Auth Configuration
   state = { isSignedIn : false }
   uiConfig = {
     callbacks: {
@@ -82,15 +84,10 @@ class App extends Component {
           <Grid container sm={12}>
 
             <Grid item sm={6}>
-              <Pomo />
+              <Pomo /> 
+
               {this.state.isSignedIn ? (
-                <Paper elevation={3}>
-                  <div class="container">
-                    <div class="relative">
-                      Poke
-                    </div>
-                  </div>
-                </Paper>
+                <Poke />
               ) : (
                 <StyledFirebaseAuth
                 uiConfig={this.uiConfig}
