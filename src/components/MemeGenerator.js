@@ -1,5 +1,5 @@
 import Button from '@material-ui/core/Button';
-import React, {Component} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@material-ui/core';
 import quotes from "./quotes.json";
@@ -12,7 +12,7 @@ import quotes from "./quotes.json";
 
 //Quizlet, Meme/doggo, ??null, Focus
 
-class MemeGenerator extends Component {
+class MemeGenerator extends React.Component {
 
   constructor() {
     super();
@@ -118,54 +118,35 @@ class MemeGenerator extends Component {
   //increaseFont = () => {};
 
   render() {
+    let content;
     if (this.state.want_rick || this.state.status == 2) {
-        return  <div className={this.buttonClasses.root}>
-              <Button variant="contained" size='small' onClick={this.handleClick}>Quick meme and doggo break?</Button>
-              <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
-              <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
-              <Button variant="contained" size='small' onClick={this.handleClickNull}>?null=/(??</Button>
-              <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-  } else if (this.state.status == 1){
-    return <div className={this.buttonClasses.root}>
-            <Button variant="contained" size='small' onClick={this.handleClick}>Quick meme and doggo break?</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNull}>?null=/(??</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
-        <iframe src="https://quizlet.com/555471868/flashcards/embed?i=3iac9z&x=1jj1" height="700" width="100%" ></iframe>
-      </div>
-  } else if (this.state.status == 3) {
-    return  <div className={this.buttonClasses.root}>
-    <Button onClick={this.handleClick}>Quick meme and doggo break?</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNull}>?null=/(??</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
+      content = (
+        <div className={this.buttonClasses.root}>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      );
+    } else if (this.state.status == 1){
+      content = (
+        <div className={this.buttonClasses.root}>
+            <iframe src="https://quizlet.com/555471868/flashcards/embed?i=3iac9z&x=1jj1" height="700" width="100%" ></iframe>
+        </div>
+      );
+    } else if (this.state.status == 3) {
+      content = (
+        <div className={this.buttonClasses.root}>
           <iframe src="https://www.overstellar.se/random-exercise/#" height="700" width="100%" ></iframe>
         </div>
-  } else if (this.state.status == 0) {
-    return  <div className={this.buttonClasses.root}>
-    <Button onClick={this.handleClick}>Quick meme and doggo break?</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNull}>?null=/(??</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
+      );
+    } else if (this.state.status == 0) {
+      content = (
+        <div className={this.buttonClasses.root}>
           <h1> {this.state.quote_text} </h1>
           <h2> {this.state.quote_author} </h2>        
         </div>
-  } else {
-    return (
+      );
+    } else {
+      content = (
         <div>
-          <div className={this.buttonClasses.root}>
-            <Button variant="contained" size='small' onClick={this.handleClick}>Quick meme and doggo break?</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickNull}>?null=/(??</Button>
-            <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
-          </div>
           <div className="meme">
             <h2
               //style={{ fontSize: Number(this.state.font_size) }}
@@ -183,8 +164,19 @@ class MemeGenerator extends Component {
           </div>
         </div>
       );
+    }
+
+    return(
+      <div className={this.buttonClasses.root}>
+        <Button variant="contained" size='small' onClick={this.handleClick}>Quick meme and doggo break?</Button>
+        <Button variant="contained" size='small' onClick={this.handleClickNegative}>Back to study!~</Button>
+        <Button variant="contained" size='small' onClick={this.handleClickQuizlet}>Quizlet Time! :)</Button>
+        <Button variant="contained" size='small' onClick={this.handleClickNull}>It's a secret ;)</Button>
+        <Button variant="contained" size='small' onClick={this.handleClickExercise}>Quick Exercise whoop!</Button>
+        {content}
+      </div>
+    );
   }
-}
 }
 
 export default MemeGenerator;
