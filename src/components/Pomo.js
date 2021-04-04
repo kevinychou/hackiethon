@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import './Pomo.css';
 import Button from '@material-ui/core/Button';
 
+
 // import openSans from "@fontsource/open-sans"
 
 
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     '& > *': {
-      margin: theme.spacing(2),
+      margin: theme.spacing(10),
       width: theme.spacing(100),
       height: theme.spacing(40),
     },
@@ -70,6 +71,8 @@ export default function Pomo() {
                     </React.Fragment>
                   )}
                 </Timer>
+
+
               </Typography>
             </div>
           </div>
@@ -77,6 +80,9 @@ export default function Pomo() {
     </div>
   );
 }
+
+
+
 // const useStyles = makeStyles({
 //   root: {
 //     minWidth: 275,

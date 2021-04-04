@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import Panel from './Quizlet'
+import MemeGenerator from './MemeGenerator.js'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,15 +67,19 @@ export default function SimpleTabs() {
           <Tab label="Item Three" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
+
       <TabPanel value={value} index={0}>
         <Panel />
       </TabPanel>
+
       <TabPanel value={value} index={1}>
-        Meme
+        <MemeGenerator />
       </TabPanel>
+
       <TabPanel value={value} index={2}>
         Other
       </TabPanel>
+      
     </div>
   );
 }
